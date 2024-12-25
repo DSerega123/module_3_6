@@ -8,14 +8,12 @@ def calculate_structure_sum(*data):
             for j in i:
                 if isinstance(j, int):
                     res = res + j
+                elif isinstance(j, float):
+                    res = res + j
+                elif isinstance(j, str):
+                    res = res + len(j)
                 else:
-                    if isinstance(j, float):
-                        res = res + j
-                    else:
-                        if isinstance(j, str):
-                            res = res + len(j)
-                        else:
-                            calculate_structure_sum(j)
+                    calculate_structure_sum(j)
     return res
 
 data_structure = [
